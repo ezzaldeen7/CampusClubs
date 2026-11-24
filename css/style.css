@@ -1,0 +1,1578 @@
+/* ==========================================================================
+   Campus Clubs Management System — Vibrant Modern Campus Design System
+   Research-Driven Palette:
+     Royal Blue #1D4ED8 · Vibrant Teal #0EA5A4 · Coral Energy #FF6B57
+     Sunburst Gold #F59E0B · Emerald #10B981 · Glacier Canvas #F8FAFC
+   ========================================================================== */
+
+:root {
+    --blue: #1D4ED8;
+    --blue-deep: #0F2A5F;
+    --blue-soft: #EFF6FF;
+    --teal: #0EA5A4;
+    --teal-soft: #E6F7F7;
+    --coral: #FF6B57;
+    --coral-hover: #EE5440;
+    --coral-soft: #FFF1EE;
+    --gold: #F59E0B;
+    --gold-soft: #FEF3C7;
+    --emerald: #10B981;
+    --emerald-soft: #ECFDF5;
+    --danger: #E11D48;
+    --danger-hover: #BE123C;
+    --danger-soft: #FFF1F2;
+
+    --canvas: #F8FAFC;
+    --white: #FFFFFF;
+    --ink: #0F172A;
+    --slate: #475569;
+    --muted: #64748B;
+    --border: #E2E8F0;
+
+    --font-heading: 'Plus Jakarta Sans', 'Manrope', 'Alexandria', 'Segoe UI', Tahoma, Arial, sans-serif;
+    --font-body: 'Inter', 'Manrope', 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.09);
+    --shadow-coral: 0 8px 20px rgba(255, 107, 87, 0.28);
+    --max-w: 1200px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    background-color: var(--canvas);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 160ms ease;
+}
+
+a:hover {
+    color: var(--coral);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+/* Typography */
+.kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+}
+
+.display-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.18;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+}
+
+.display-title-xl {
+    margin: 0 0 8px;
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.14;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+}
+
+.lead-copy {
+    margin: 10px 0 0;
+    font-size: 15.5px;
+    color: var(--slate);
+    max-width: 64ch;
+}
+
+.sub-heading,
+.panel-heading {
+    margin: 0 0 12px;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.muted { color: var(--muted); }
+.small-text { font-size: 13px; }
+
+.text-link {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.text-link:hover {
+    color: var(--coral);
+    text-decoration: underline;
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--slate);
+    margin-bottom: 16px;
+}
+
+.back-link:hover { color: var(--blue); }
+
+.ochre-rule {
+    width: 64px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), var(--coral));
+    margin: 18px 0;
+}
+
+/* Modern Bright Header with Vibrant Top Accent Stripe */
+.site-header {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 8px rgba(15, 23, 42, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.site-header::before {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--teal) 40%, var(--coral) 75%, var(--gold) 100%);
+}
+
+.header-inner {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    flex-shrink: 0;
+}
+
+.brand:hover { color: var(--ink); }
+
+.brand-monogram {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.24);
+}
+
+.brand-monogram-ochre {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--coral) 100%);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(255, 107, 87, 0.35);
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.brand-edition {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--teal);
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate);
+    border-radius: 999px;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.nav-link:hover {
+    color: var(--blue);
+    background-color: var(--blue-soft);
+}
+
+.nav-link.is-active {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.22);
+}
+
+.nav-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.account-name {
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    background-color: var(--ink);
+    width: 100%;
+    border-radius: 2px;
+}
+
+/* Main Content */
+.site-main {
+    flex: 1;
+    padding: 32px 0 56px;
+}
+
+.editorial-masthead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 22px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid var(--border);
+}
+
+.editorial-masthead.compact {
+    padding-bottom: 16px;
+    margin-bottom: 22px;
+}
+
+.masthead-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Vibrant Campus Hero Banner */
+.campus-visual-banner {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 28px;
+    min-height: 220px;
+    background-image:
+        linear-gradient(100deg, rgba(15, 42, 95, 0.88) 0%, rgba(29, 78, 216, 0.72) 52%, rgba(14, 165, 164, 0.45) 100%),
+        url('../images/campus-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--white);
+    border: none;
+    box-shadow: var(--shadow-md);
+}
+
+.campus-visual-banner h1,
+.campus-visual-banner .display-title {
+    color: var(--white);
+}
+
+.campus-visual-banner .lead-copy {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.campus-visual-banner .kicker {
+    color: var(--gold);
+}
+
+.campus-visual-banner .btn-outline {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: var(--white);
+}
+
+.campus-visual-banner .btn-outline:hover {
+    background-color: var(--white);
+    color: var(--blue-deep);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--coral) 0%, #F97316 100%);
+    color: var(--white);
+    box-shadow: var(--shadow-coral);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--coral-hover) 0%, #EA580C 100%);
+    color: var(--white);
+}
+
+.btn-forest {
+    background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.22);
+}
+
+.btn-forest:hover {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
+    color: var(--white);
+}
+
+.btn-outline {
+    background-color: var(--white);
+    border-color: var(--border);
+    color: var(--ink);
+}
+
+.btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background-color: var(--blue-soft);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-hover);
+    color: var(--white);
+}
+
+.btn-sm {
+    height: 36px;
+    padding: 0 15px;
+    font-size: 13.5px;
+}
+
+.btn-xs {
+    height: 31px;
+    padding: 0 11px;
+    font-size: 12.5px;
+    border-radius: 8px;
+}
+
+.btn-block { width: 100%; }
+.inline-form { display: inline; margin: 0; }
+
+/* Surfaces & Bento Panels */
+.surface-block {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow-sm);
+}
+
+.sage-panel {
+    background: linear-gradient(160deg, var(--blue-soft) 0%, var(--teal-soft) 100%);
+    border: 1px solid #BFDBFE;
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-head h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+/* Vibrant Bento Metrics Strip */
+.metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.metric-cell {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--blue);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--shadow-sm);
+}
+
+.metric-cell:nth-child(2) { border-top-color: var(--teal); }
+.metric-cell:nth-child(3) { border-top-color: var(--gold); }
+.metric-cell:nth-child(4) { border-top-color: var(--emerald); }
+.metric-cell:nth-child(5) { border-top-color: var(--coral); }
+
+.metric-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.metric-num {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.metric-accent { color: var(--coral); }
+
+/* Asymmetric 2-Column Layout */
+.editorial-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr);
+    gap: 26px;
+    align-items: start;
+}
+
+.editorial-spread > .surface-block,
+.aside-stack > .surface-block {
+    margin-bottom: 0;
+}
+
+.aside-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.index-links {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.index-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(29, 78, 216, 0.12);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    transition: transform 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.index-links a:hover {
+    transform: translateX(3px);
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.digest-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.digest-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.digest-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.digest-meta { font-size: 12px; color: var(--teal); font-weight: 600; }
+
+/* Student Dashboard Hero & Featured Grid */
+.student-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 32px;
+}
+
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.summary-grid div {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(29, 78, 216, 0.1);
+}
+
+.summary-num {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--blue-deep);
+    line-height: 1.15;
+}
+
+.summary-accent { color: var(--coral); }
+.summary-grid span { font-size: 12.5px; color: var(--slate); font-weight: 600; }
+
+.editorial-section { margin-bottom: 34px; }
+
+.featured-magazine-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 22px;
+}
+
+/* Clubs Directory — Modern Campus Hub */
+.directory-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.search-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-inline input {
+    height: 38px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    min-width: 230px;
+}
+
+.club-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+.club-feature-media {
+    overflow: hidden;
+    background-color: var(--blue-deep);
+}
+
+.club-feature-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 350ms ease;
+}
+
+.club-feature:hover .club-feature-media img {
+    transform: scale(1.04);
+}
+
+.club-feature-body {
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.feature-heading {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.feature-heading a { color: var(--ink); }
+.feature-heading a:hover { color: var(--blue); }
+.feature-desc { margin: 0; color: var(--slate); }
+
+.feature-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.editorial-club-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.mag-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.mag-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: #CBD5E1;
+}
+
+.mag-img-wrap {
+    overflow: hidden;
+    background-color: var(--blue-deep);
+}
+
+.mag-img-wrap img {
+    width: 100%;
+    aspect-ratio: 16 / 9.5;
+    object-fit: cover;
+    transition: transform 350ms ease;
+}
+
+.mag-card:hover .mag-img-wrap img {
+    transform: scale(1.04);
+}
+
+.mag-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.mag-body h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.mag-body h3 a { color: var(--ink); }
+.mag-body h3 a:hover { color: var(--blue); }
+.mag-body p { margin: 0; font-size: 14px; color: var(--slate); }
+
+.mag-foot {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meta-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+/* Club Details */
+.club-detail-header { margin-bottom: 20px; }
+
+.club-detail-banner {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+    max-height: 380px;
+    box-shadow: var(--shadow-md);
+}
+
+.club-detail-banner img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+}
+
+.detail-story-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.story-prose { margin: 0; font-size: 15.5px; line-height: 1.75; color: var(--slate); }
+
+.editorial-bullets {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--ink);
+}
+
+.status-row { margin: 14px 0 18px; }
+
+/* Announcements Campus Pulse Feed */
+.gazette-lead {
+    background-image:
+        linear-gradient(105deg, rgba(15, 42, 95, 0.90) 0%, rgba(29, 78, 216, 0.78) 55%, rgba(14, 165, 164, 0.58) 100%),
+        url('../images/campus-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 38px 42px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+.gazette-lead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.edition-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: rgba(245, 158, 11, 0.22);
+    border: 1px solid rgba(245, 158, 11, 0.55);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FDE68A;
+}
+
+.lead-date { font-size: 13px; color: rgba(255, 255, 255, 0.86); font-weight: 600; }
+
+.gazette-lead h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.22;
+    color: var(--white);
+}
+
+.gazette-lead p {
+    margin: 0;
+    font-size: 15.5px;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 72ch;
+}
+
+.gazette-list { display: flex; flex-direction: column; gap: 16px; }
+
+.gazette-entry {
+    padding: 18px 20px;
+    border-radius: 12px;
+    background-color: var(--canvas);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+}
+
+.gazette-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.gazette-num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--coral);
+}
+
+.gazette-title {
+    margin: 0 0 6px;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.gazette-body { margin: 0; font-size: 14.5px; color: var(--slate); }
+.gazette-actions { margin-top: 12px; display: flex; gap: 8px; }
+
+/* Filters, Tags & Status Pills */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.directory-controls .filter-bar { margin-bottom: 0; }
+
+.filter-chip {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background-color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--slate);
+    transition: all 150ms ease;
+}
+
+.filter-chip:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background-color: var(--blue-soft);
+}
+
+.filter-chip.is-active {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+    border-color: transparent;
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.22);
+}
+
+.filter-label { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+
+.filter-select {
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.cat-tag {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background-color: var(--blue-soft);
+    color: var(--blue);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-pending { background-color: var(--gold-soft); color: #B45309; }
+.status-approved { background-color: var(--emerald-soft); color: #047857; }
+.status-rejected { background-color: var(--danger-soft); color: var(--danger); }
+
+/* Tables */
+.table-scroll { width: 100%; overflow-x: auto; }
+
+.editorial-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.editorial-table th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background-color: var(--canvas);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.editorial-table td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.editorial-table tbody tr:hover { background-color: #F8FAFF; }
+.editorial-table tbody tr:last-child td { border-bottom: none; }
+
+.club-cell { display: flex; align-items: center; gap: 12px; }
+
+.club-thumb {
+    width: 64px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.align-right { text-align: right; }
+.nowrap { white-space: nowrap; }
+
+/* Forms */
+.form-container { max-width: 780px; }
+.form-stack { display: flex; flex-direction: column; gap: 16px; }
+.form-row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.hint-inline { font-weight: 400; color: var(--muted); font-size: 12.5px; }
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--ink);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+}
+
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; padding-top: 8px; }
+.password-wrap { position: relative; display: flex; align-items: center; }
+.password-wrap input { padding-right: 68px; }
+
+.password-btn {
+    position: absolute;
+    right: 8px;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.password-btn:hover { color: var(--blue); }
+
+/* Flash Notices */
+.notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border-left: 4px solid var(--blue);
+    margin-bottom: 22px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.notice-success {
+    background-color: var(--emerald-soft);
+    border-left-color: var(--emerald);
+    color: #065F46;
+}
+
+.notice-error {
+    background-color: var(--danger-soft);
+    border-left-color: var(--danger);
+    color: #9F1239;
+}
+
+.notice-close {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    line-height: 1;
+    color: inherit;
+    cursor: pointer;
+}
+
+.empty-copy { margin: 0; padding: 20px 0; color: var(--muted); }
+
+/* Vibrant Split Login & Register Page */
+.login-body { background-color: var(--canvas); }
+
+.login-split {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+}
+
+.login-editorial {
+    background-image:
+        linear-gradient(155deg, rgba(15, 42, 95, 0.86) 0%, rgba(29, 78, 216, 0.72) 52%, rgba(14, 165, 164, 0.78) 100%),
+        url('../images/campus-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-lockup { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+
+.brand-lockup-name {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.editorial-headline {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--white);
+}
+
+.editorial-lead {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 46ch;
+}
+
+.login-editorial-foot {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.login-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 44px 36px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+}
+
+.login-heading {
+    margin: 0 0 6px;
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.login-sub { margin: 0 0 22px; font-size: 14px; color: var(--slate); }
+
+.auth-switch {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--slate);
+}
+
+.login-demo-box {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background-color: var(--blue-soft);
+    border: 1px solid #BFDBFE;
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: var(--ink);
+}
+
+.login-demo-box p { margin: 4px 0; }
+.demo-title { font-weight: 800; color: var(--blue-deep); margin-bottom: 6px; }
+
+.login-demo-box code {
+    background-color: var(--white);
+    padding: 2px 6px;
+    border-radius: 5px;
+    border: 1px solid #CBD5E1;
+    color: var(--blue-deep);
+}
+
+/* Error Notice Standalone Page */
+.page-center { align-items: center; justify-content: center; padding: 24px; }
+
+.editorial-notice {
+    max-width: 480px;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--coral);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+}
+
+.editorial-notice h1 {
+    margin: 0 0 10px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--ink);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--blue-deep);
+    color: var(--white);
+    padding: 24px 0;
+    margin-top: auto;
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.footer-title { margin: 0; font-family: var(--font-heading); font-size: 15px; font-weight: 800; }
+.footer-note, .footer-meta { margin: 2px 0 0; font-size: 12.5px; color: #CBD5E1; }
+
+/* Prevent grid overflow on narrow mobile screens */
+.editorial-spread > *,
+.student-hero > *,
+.aside-stack,
+.surface-block,
+.sage-panel {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Responsive Design (1440px, 1366px, 768px, 390px, 360px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .featured-magazine-grid { grid-template-columns: 1fr 1fr; }
+    .featured-magazine-grid .mag-card-lead { grid-column: 1 / -1; }
+    .metrics-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .editorial-spread,
+    .student-hero,
+    .club-feature { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 820px) {
+    .login-split { grid-template-columns: 1fr; }
+    .login-editorial { padding: 36px 24px; gap: 24px; }
+    .editorial-headline { font-size: 32px; }
+
+    .nav-toggle { display: inline-flex; }
+    .header-inner { flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+
+    .site-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+    }
+
+    .site-nav.is-open { display: flex; }
+    .nav-links { flex-direction: column; align-items: stretch; }
+    .nav-link { padding: 11px 14px; border-radius: 10px; }
+    .nav-account { justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+}
+
+@media (max-width: 640px) {
+    .container { padding: 0 16px; }
+    .site-main { padding: 22px 0 40px; }
+    .editorial-masthead { flex-direction: column; align-items: flex-start; }
+    .campus-visual-banner { padding: 24px 20px; flex-direction: column !important; align-items: flex-start !important; }
+    .display-title { font-size: 25px; }
+    .display-title-xl { font-size: 29px; }
+    .metrics-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .metric-cell { padding: 16px; }
+    .featured-magazine-grid,
+    .editorial-club-grid,
+    .form-row-2 { grid-template-columns: 1fr; }
+    .surface-block, .sage-panel, .login-box { padding: 20px; }
+    .gazette-lead { padding: 24px 20px; }
+    .gazette-lead h2 { font-size: 23px; }
+    .club-feature-body { padding: 20px; }
+    .search-inline { width: 100%; }
+    .search-inline input { min-width: 0; flex: 1; }
+    .login-panel { padding: 24px 16px; }
+    .editorial-table th, .editorial-table td { padding: 10px; font-size: 13px; }
+}
+
+/* ==========================================================================
+   Expert Glassmorphism (Frosted Blur) & Concentric Rounded Card System
+   ========================================================================== */
+body {
+    background-color: #EEF3F9;
+    background-image:
+        radial-gradient(circle at 8% 12%, rgba(29, 78, 216, 0.13) 0%, transparent 38%),
+        radial-gradient(circle at 92% 16%, rgba(14, 165, 164, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 84% 86%, rgba(255, 107, 87, 0.12) 0%, transparent 42%),
+        radial-gradient(circle at 14% 82%, rgba(245, 158, 11, 0.10) 0%, transparent 38%);
+    background-attachment: fixed;
+}
+
+/* Frosted Glass Sticky Header */
+.site-header {
+    background-color: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(18px) saturate(170%);
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+/* Concentric Rounded Glass Cards */
+.surface-block,
+.mag-card,
+.club-feature,
+.login-box,
+.editorial-notice {
+    background-color: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(18px) saturate(165%);
+    -webkit-backdrop-filter: blur(18px) saturate(165%);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    border-radius: 26px;
+    box-shadow:
+        0 10px 30px rgba(15, 42, 95, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.sage-panel {
+    background: linear-gradient(145deg, rgba(239, 246, 255, 0.78) 0%, rgba(230, 247, 247, 0.76) 100%);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 26px;
+    box-shadow: 0 10px 28px rgba(15, 42, 95, 0.06);
+}
+
+/* Concentric Inner Image Frames on Club Cards */
+.mag-img-wrap {
+    padding: 12px 12px 0 12px;
+    background: transparent;
+}
+
+.mag-img-wrap img {
+    border-radius: 18px;
+}
+
+.club-feature {
+    padding: 14px;
+    gap: 8px;
+}
+
+.club-feature-media {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.club-feature-body {
+    padding: 22px 26px;
+}
+
+.mag-card:hover,
+.club-feature:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.86);
+    border-color: rgba(255, 255, 255, 0.98);
+    box-shadow:
+        0 18px 40px rgba(15, 42, 95, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Rounded Frosted Metric Cards */
+.metric-cell {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    border-top: 1px solid rgba(255, 255, 255, 0.88);
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 42, 95, 0.06);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.metric-cell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    border-radius: 0 0 999px 999px;
+    background: linear-gradient(90deg, var(--blue), #60A5FA);
+}
+
+.metric-cell:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), #2DD4BF); }
+.metric-cell:nth-child(3)::before { background: linear-gradient(90deg, var(--gold), #FBBF24); }
+.metric-cell:nth-child(4)::before { background: linear-gradient(90deg, var(--emerald), #34D399); }
+.metric-cell:nth-child(5)::before { background: linear-gradient(90deg, var(--coral), #FB923C); }
+
+.metric-cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(15, 42, 95, 0.10);
+}
+
+/* Rounded Hero Banners, Gazette & Inner Elements */
+.campus-visual-banner,
+.gazette-lead,
+.club-detail-banner {
+    border-radius: 28px;
+}
+
+.gazette-entry {
+    background-color: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-left: 4px solid var(--teal);
+    border-radius: 18px;
+}
+
+.summary-grid div,
+.index-links a {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+}
+
+/* Pill Buttons & Rounded Inputs */
+.btn {
+    border-radius: 999px;
+    padding: 0 22px;
+}
+
+.btn-xs {
+    border-radius: 999px;
+    padding: 0 13px;
+}
+
+.field input,
+.field select,
+.field textarea,
+.search-inline input,
+.filter-select {
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.88);
+}
+
+.login-demo-box {
+    border-radius: 16px;
+    background-color: rgba(239, 246, 255, 0.75);
+    backdrop-filter: blur(10px);
+}
+
+.club-thumb {
+    border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+    .surface-block,
+    .mag-card,
+    .club-feature,
+    .login-box,
+    .sage-panel {
+        border-radius: 22px;
+    }
+    .campus-visual-banner,
+    .gazette-lead {
+        border-radius: 22px;
+    }
+    .club-feature {
+        padding: 12px;
+    }
+    .club-feature-body {
+        padding: 14px 10px 10px;
+    }
+}
