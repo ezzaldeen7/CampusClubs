@@ -40,6 +40,21 @@ try {
     die('DB Error (' . htmlspecialchars($db_host . ':' . $db_port . '/' . $db_name) . '): ' . htmlspecialchars($e->getMessage()));
 }
 
+// إنشاء الجداول تلقائياً مرة واحدة فقط إذا كانت قاعدة البيانات فارغة
+if (!$pdo->query("SHOW TABLES LIKE 'users'")->fetch()) {
+    $raw = file_get_contents(__DIR__ . '/campus_clubs.sql');
+    $lines = array_filter(preg_split('/\R/', $raw), fn($l) => trim($l) !== '' && !str_starts_with(trim($l), '--'));
+    $sql = implode("\n", $lines);
+    $sql = preg_replace('/CREATE\s+DATABASE\b.*?;/is', '', $sql);
+    $sql = preg_replace('/USE\s+`?[^;`]+`?\s*;/i', '', $sql);
+    foreach (explode(";\n", $sql) as $stmt) {
+        $stmt = trim($stmt);
+        if ($stmt !== '') {
+            $pdo->exec($stmt);
+        }
+    }
+}
+
 function e($value): string
 {
     return htmlspecialchars((string) ($value ?? ''), ENT_QUOTES, 'UTF-8');
