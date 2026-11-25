@@ -8,14 +8,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$db_host = getenv('DB_HOST') ?: '127.0.0.1';
-$db_name = getenv('DB_NAME') ?: 'campus_clubs_db';
-$db_user = getenv('DB_USER') ?: 'root';
-$db_pass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : '';
+$db_host = getenv('DB_HOST') ?: (getenv('MYSQLHOST') ?: '127.0.0.1');
+$db_port = getenv('DB_PORT') ?: (getenv('MYSQLPORT') ?: '3306');
+$db_name = getenv('DB_NAME') ?: (getenv('MYSQLDATABASE') ?: 'campus_clubs_db');
+$db_user = getenv('DB_USER') ?: (getenv('MYSQLUSER') ?: 'root');
+$db_pass = getenv('DB_PASS') !== false
+    ? getenv('DB_PASS')
+    : (getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : '');
 
 try {
     $pdo = new PDO(
-        "mysql:host={$db_host};dbname={$db_name};charset=utf8mb4",
+        "mysql:host={$db_host};port={$db_port};dbname={$db_name};charset=utf8mb4",
         $db_user,
         $db_pass,
         [
