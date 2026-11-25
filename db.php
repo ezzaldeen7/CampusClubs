@@ -8,13 +8,20 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$db_host = getenv('DB_HOST') ?: (getenv('MYSQLHOST') ?: '127.0.0.1');
-$db_port = getenv('DB_PORT') ?: (getenv('MYSQLPORT') ?: '3306');
-$db_name = getenv('DB_NAME') ?: (getenv('MYSQLDATABASE') ?: 'campus_clubs_db');
-$db_user = getenv('DB_USER') ?: (getenv('MYSQLUSER') ?: 'root');
-$db_pass = getenv('DB_PASS') !== false
-    ? getenv('DB_PASS')
-    : (getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : '');
+function env_val(string $key, ?string $default = null): ?string
+{
+    if (isset($_ENV[$key]) && $_ENV[$key] !== '') return (string) $_ENV[$key];
+    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') return (string) $_SERVER[$key];
+    $v = getenv($key);
+    if ($v !== false && $v !== '') return (string) $v;
+    return $default;
+}
+
+$db_host = env_val('DB_HOST') ?? env_val('MYSQLHOST') ?? '127.0.0.1';
+$db_port = env_val('DB_PORT') ?? env_val('MYSQLPORT') ?? '3306';
+$db_name = env_val('DB_NAME') ?? env_val('MYSQLDATABASE') ?? 'campus_clubs_db';
+$db_user = env_val('DB_USER') ?? env_val('MYSQLUSER') ?? 'root';
+$db_pass = env_val('DB_PASS') ?? env_val('MYSQLPASSWORD') ?? '';
 
 try {
     $pdo = new PDO(
@@ -30,7 +37,7 @@ try {
 } catch (PDOException $e) {
     error_log('Database connection error: ' . $e->getMessage());
     http_response_code(500);
-    die('Unable to connect to the database. Please confirm MySQL is running and campus_clubs.sql has been imported.');
+    die('DB Error (' . htmlspecialchars($db_host . ':' . $db_port . '/' . $db_name) . '): ' . htmlspecialchars($e->getMessage()));
 }
 
 function e($value): string
@@ -162,7 +169,6 @@ function club_image_options(): array
     ];
 }
 
-// Safe procedural image upload helper for clubs (JPG, PNG, WEBP up to 3MB)
 function handle_club_image_upload(array $file, array &$errors): ?string
 {
     if (!isset($file['error']) || $file['error'] === UPLOAD_ERR_NO_FILE) {
